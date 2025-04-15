@@ -1,0 +1,25 @@
+{
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": false,
+        "**/.hg": false,
+        "**/CVS": false,
+        "**/.cursor": false,
+        "**/.data": false,
+        "**/.docs": false,
+        "**/.editorconfig": false,
+        "**/.eslintignore": false,
+        "**/.eslintrc.json": false,
+        "**/.gitignore": false,
+        "**/.nuxt": false,
+        "**/.output": false,
+        "**/.prettierrc": false,
+        "**/.vercel": false,
+        "**/.vscode": false,
+        "**/components.json": false,
+        "**/error.vue": false,
+        "**/lib": false,
+        "**/node_modules": false,
+        "**/tsconfig.json": false
+    }
+}
