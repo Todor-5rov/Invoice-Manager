@@ -17,7 +17,14 @@
     <p class="text-gray-600">
       Drag and drop your file here, or click to browse
     </p>
-    <p class="text-sm text-gray-500 mt-2">Supported formats: PDF, JPG, PNG</p>
+    <p class="text-xs text-gray-500">
+      Supported formats: PDF, PNG, JPG (Max size: 5MB)
+    </p>
+    <p class="text-xs text-yellow-600 mt-2">
+      <Icon name="lucide:alert-triangle" class="w-4 h-4 inline mr-1" />
+      Note: AI extraction may not be 100% accurate. Please review and edit the
+      extracted information after upload.
+    </p>
   </div>
 </template>
 

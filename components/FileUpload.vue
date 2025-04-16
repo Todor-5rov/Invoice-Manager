@@ -37,6 +37,16 @@
         <p class="text-xs text-gray-500">
           Supported formats: PDF, PNG, JPG (Max size: 5MB)
         </p>
+        <p
+          class="text-xs text-gray-400 bg-gray-50/20 px-2 py-1 rounded mt-2 inline-block"
+        >
+          <Icon
+            name="lucide:alert-triangle"
+            class="w-4 h-4 inline mr-1 text-yellow-400"
+          />
+          Note: AI extraction may not be 100% accurate. Please review and edit
+          the extracted information after upload.
+        </p>
       </div>
 
       <input
