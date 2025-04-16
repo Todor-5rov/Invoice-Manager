@@ -53,13 +53,13 @@
 
 ### Profile & Notes
 
-- [ ] Create profile page layout
-- [ ] Implement profile picture upload
-- [ ] Build form for editing user information
+- [x] Create profile page layout
+- [x] Implement profile picture upload
+- [x] Build form for editing user information
 - [ ] Create account deletion functionality
-- [ ] Implement notes feature for invoices
-- [ ] Add notes editing interface
-- [ ] Set up database schema for notes
+- [x] Implement notes feature for invoices
+- [x] Add notes editing interface
+- [x] Set up database schema for notes
 
 ## Payment Integration & Finalization
 
@@ -128,8 +128,8 @@
 - [x] Login with both methods functions properly
 - [x] Upload limits are enforced correctly
 - [x] Files can be uploaded, viewed, and downloaded
-- [ ] Profile editing works as expected
-- [ ] Notes can be added and edited
+- [x] Profile editing works as expected
+- [x] Notes can be added and edited
 - [ ] Subscription upgrades process correctly
 
 ### Security Testing

@@ -1,5 +1,8 @@
 import { Mistral } from "@mistralai/mistralai";
 
+// Helper function to add delay between requests
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export const useInvoiceProcessing = () => {
   const supabase = useSupabaseClient();
   const user = useState("user");
@@ -16,6 +19,19 @@ export const useInvoiceProcessing = () => {
         size: file.size,
         lastModified: file.lastModified,
       });
+
+      // Determine file type
+      const fileType = file.type.startsWith("image/")
+        ? "image"
+        : file.type === "application/pdf"
+        ? "pdf"
+        : null;
+
+      if (!fileType) {
+        throw new Error(
+          "Unsupported file type. Please use PDF or image files."
+        );
+      }
 
       // 1. Upload file to Supabase Storage
       const fileExt = file.name.split(".").pop();
@@ -41,8 +57,11 @@ export const useInvoiceProcessing = () => {
 
       // 3. Extract text from the file using Mistral OCR
       console.log("Extracting text from file...");
-      const ocrText = await useMistralOCR({ file, fileType: file.type });
+      const ocrText = await useMistralOCR({ file, fileType });
       console.log("Extracted text:", ocrText);
+
+      // Add delay before data extraction
+      await delay(1500);
 
       // 4. Extract structured data using Mistral AI
       console.log("Extracting structured data from text...");

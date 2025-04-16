@@ -188,7 +188,7 @@ const user = useState("user");
 const supabase = useSupabaseClient();
 const router = useRouter();
 
-// Fetch profile data on mount
+// Fetch profile data on mount and when user state changes
 const fetchProfile = async () => {
   if (!user.value) return;
 
@@ -215,6 +215,17 @@ const fetchProfile = async () => {
   }
 };
 
+// Watch for user state changes
+watch(
+  user,
+  (newUser) => {
+    if (newUser) {
+      fetchProfile();
+    }
+  },
+  { immediate: true }
+);
+
 // Watch for auth state changes
 supabase.auth.onAuthStateChange((event, session) => {
   if (event === "SIGNED_IN" && session) {
@@ -235,6 +246,16 @@ onMounted(async () => {
     await fetchProfile();
   }
 });
+
+// Add route change watcher to ensure state consistency
+watch(
+  () => router.currentRoute.value,
+  async () => {
+    if (user.value) {
+      await fetchProfile();
+    }
+  }
+);
 
 const navigationItems = [
   { name: "Home", href: "/" },
